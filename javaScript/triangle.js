@@ -1,113 +1,83 @@
-// Triangle Calculation
+function calculatorEllipse(){
+    const ellipsevalueA = thatConvertToNumber('ellipsevalueA');
+    const ellipsevalueB = thatConvertToNumber('ellipsevalueB');
+    const calculator = 3.14 * ellipsevalueA * ellipsevalueB;
+    const calculate = calculator.toFixed(2)
+    setAsAInnerText('ellipseAreaValue', calculate);
 
-function calculateTriangle() {
-    const inputText1 = document.getElementById('inputBox1');
-    const triangleTextBase = inputText1.value;
-    const TriangleToNumber = parseFloat(triangleTextBase)
+    showInCalculator("Ellipse Area Value Is :", calculate)
+}
+function calculatorParallelogram(){
+    const parallelogramBase = thatConvertToNumber('parallelogramBase');
+    const parallelogramHeight = thatConvertToNumber('parallelogramHeight');
+    const calculate = parallelogramBase * parallelogramHeight;
+    setAsAInnerText('parallelogramAreaValue', calculate);
 
-    const inputText2 = document.getElementById('inputBox2');
-    const triangleTextheight = inputText2.value;
-    const heightToNumber = parseFloat(triangleTextheight)
+    showInCalculator("Parallelogram Area Value Is :", calculate)
+}
 
-    const area = 0.5 * TriangleToNumber * heightToNumber;
+function calculateRectangle(){
+    const inputBox3 = thatConvertToNumber('inputBox3');
+    const inputBox4 = thatConvertToNumber('inputBox4');
+    const calculate = inputBox3 * inputBox4;
+    setAsAInnerText('rectangleAreaValue', calculate);
 
-    const TriangleAreaValue = document.getElementById('triangle-area-value');
-    TriangleAreaValue.innerText = area
-    // console.log("Area of the Triangle is :", area)
-
-    // const calculatorBox = document.getElementById('Show-the-result-here')
-    // const p = document.createElement('p');
-    // p.innerText = area;
-    // p.style.fontSize = "50px"
-    // calculatorBox.appendChild(p)
-
+    showInCalculator("Rectangle Area Value Is :", calculate)
 }
 
 
-// Rectangle Calculation
+function calculatorPentagon(){
+    const pentagonValueP = thatConvertToNumber('pentagonValueP');
+    const pentagonValueB = thatConvertToNumber('pentagonValueB');
+    const calculate = 0.5 * pentagonValueP * pentagonValueB;
+    setAsAInnerText('pentagonAreaValue', calculate);
 
-function calculateRectangle() {
-    const inputText3 = document.getElementById('inputBox3');
-    const rectangleTextBase = inputText3.value;
-    const rectangleBase = parseFloat(rectangleTextBase)
-
-    const inputText4 = document.getElementById('inputBox4');
-    const rectangleTextHeight = inputText4.value;
-    const rectangleHeight = parseFloat(rectangleTextHeight)
-
-    const area = rectangleBase * rectangleHeight;
-
-    const rectangleAreaValue = document.getElementById('rectangleAreaValue');
-    rectangleAreaValue.innerText = area
+    showInCalculator("Pentagon Area Value Is :", calculate)
 }
 
+function calculatorRhombus(){
+    const rhombusd1 = thatConvertToNumber('rhombusd1');
+    const rhombusd2 = thatConvertToNumber('rhombusd2');
+    const calculate = 0.5 * rhombusd1 * rhombusd2;
+    setAsAInnerText('rhombusAreaValue', calculate);
 
-// Parallelogram calculator
-
-function calculatorParallelogram() {
-    const ParallelogramInput = document.getElementById('parallelogramBase');
-    const parallelogramText = ParallelogramInput.value;
-    const Base = parseFloat(parallelogramText)
-
-
-    const ParallelogramSecondInput = document.getElementById('parallelogramHeight');
-    const ParallelogramHeight = ParallelogramSecondInput.value;
-    const height = parseFloat(ParallelogramHeight);
-
-    const AreaValue = Base * height;
-    const ParallelogramAreaValue = document.getElementById('parallelogramAreaValue');
-    ParallelogramAreaValue.innerText = AreaValue
-
+    showInCalculator("Rhombus Area Value Is :", calculate)
+    
 }
 
+function calculateTriangle(){
+    const inputBox1 = thatConvertToNumber('inputBox1');
+    const inputBox2 = thatConvertToNumber('inputBox2');
 
-// Rhombus Calculator
+    const area = 0.5 * inputBox1 * inputBox2;
+    setAsAInnerText('triangle-area-value', area);
 
-function calculatorRhombus() {
-    const rhombusd1Input = document.getElementById('rhombusd1');
-    const rhombusd1Text = rhombusd1Input.value;
-    const valued1 = parseFloat(rhombusd1Text);
-
-    const rhombusd2Input = document.getElementById('rhombusd2');
-    const rhombusd2Text = rhombusd2Input.value;
-    const valued2 = parseFloat(rhombusd2Text);
-
-    const area = 0.5 * valued1 * valued2
-
-    const rhombusAreaValue = document.getElementById('rhombusAreaValue');
-    rhombusAreaValue.innerText = area
+    showInCalculator("Triangle Area Value Is :", area)
 }
 
-
-// Pentagon Calculator
-
-function calculatorPentagon() {
-    const PentagonValueP = document.getElementById('pentagonValueP');
-    const PentagonValuePText = PentagonValueP.value;
-    const valueP = parseFloat(PentagonValuePText);
-
-    const PentagonValueB = document.getElementById('pentagonValueB');
-    const PentagonValueBText = PentagonValueB.value;
-    const valueB = parseFloat(PentagonValueBText);
-
-    const area = 0.5 * valueP * valueB;
-    const PentagonAreaValue = document.getElementById('pentagonAreaValue');
-    PentagonAreaValue.innerText = area
+function thatConvertToNumber(inputId){
+    const inputs = document.getElementById(inputId);
+    const inputValue = inputs.value;
+    const value = parseFloat(inputValue);
+    return value
 }
 
+function setAsAInnerText(areaId, result){
+    const textField = document.getElementById(areaId);
+    textField.innerText = result
+}
 
-// Ellipse Calculator 
+function showInCalculator(geoName, output){
+    const showTheResult = document.getElementById('Show-the-result-here');
 
-function calculatorEllipse() {
-    const ellipseValueA = document.getElementById('ellipsevalueA');
-    const ellipseValueAText = ellipseValueA.value;
-    const valueA = parseFloat(ellipseValueAText);
+    const anotherp = document.createElement('p');
+    anotherp.innerText = geoName;
+    anotherp.style.fontSize = '20px'
+    showTheResult.appendChild(anotherp)
 
-    const ellipseValueB = document.getElementById('ellipsevalueB');
-    const ellipseValueBText = ellipseValueB.value;
-    const valueB = parseFloat(ellipseValueBText);
-
-    const area = 3.14 * valueA * valueB
-    const EllipseAreaValue = document.getElementById('ellipseAreaValue');
-    EllipseAreaValue.innerText = area
+    const p = document.createElement('p');
+    p.innerText = output;
+    p.style.fontSize = '50px';
+    showTheResult.appendChild(p)
+    
 }
